@@ -2,9 +2,9 @@ const users = [
   {
     id: 2478,
     userName: "Mobes",
-    species: "octoling",
+    species: "Octoling",
     favWeaponKit: "Dapple Dualies Nouveau",
-    favMap: "Museum d'Alfonsino",
+    favStage: "Museum d'Alfonsino",
     img: ""
   }
 ]
