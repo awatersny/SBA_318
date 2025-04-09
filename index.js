@@ -9,6 +9,9 @@ const port = 3000
 app.use(express.static("./styles"))
 app.use(express.static("./assets"))
 
+app.set("views", "./views")
+app.set("view engine", "ejs")
+
 app.use("/", indexRoute)
 app.use("/users", userRoutes)
 app.use("/kits", kitRoutes)
