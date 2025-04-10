@@ -11,15 +11,34 @@
   <div id="container">
     <form class="login-form" action="/users" style="box-shadow: 10px 10px 11px #000000;">
       <div class="field">
-        <label class="text-label" for="username">Username:</label>
-        <input name="username" id="username" type="text" required>
+        <label class="text-label" for="userName">Username:</label>
+        <input name="userName" id="userName" type="text" required>
       </div>
       <div class="field">
-        <label class="text-label" for="splashtag">Splash Tag(4-5 digits):</label>
+        <label class="text-label" for="splashTag">Splash Tag(4-5 digits):</label>
         <div>
           <label>#</label>
-          <input name="splashtag" id="splashtag" type="text" required>
+          <input name="splashTag" id="splashTag" type="text" required>
         </div>
+      </div>
+      <div class="field">
+        <label for="species">Species</label>
+        <select name="species" id="species">
+          <option value="Inkling">Inkling</option>
+          <option value="Octoling">Octoling</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="favWeaponKit">Favorite Weapon Kit</label>
+        <select name="favWeaponKit" id="favWeaponKit">
+          <option value="kit.name">kit.name</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="favStage">Favorite Map</label>
+        <select name="favStage" id="favStage">
+          <option value="stage.name">stage.name</option>
+        </select>
       </div>
       <div class="checkbox">
         <input type="checkbox" name="noRobo" id="noRobo" required>
