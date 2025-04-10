@@ -1,6 +1,7 @@
 const users = [
   {
-    id: 2478,
+    id: 0,
+    splashTag: "2478",
     userName: "Mobes",
     species: "Octoling",
     favWeaponKit: "Dapple Dualies Nouveau",
