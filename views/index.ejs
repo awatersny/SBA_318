@@ -7,7 +7,26 @@
   <title><%= title %></title>
 </head>
 <body>
-  <h1><%= title %></h1>
-  <p><%= content %></p>
+  <h1 class="title"><%= title %></h1>
+  <div id="container">
+    <form class="login-form" action="/users" style="box-shadow: 10px 10px 11px #000000;">
+      <div class="field">
+        <label class="text-label" for="username">Username:</label>
+        <input name="username" id="username" type="text" required>
+      </div>
+      <div class="field">
+        <label class="text-label" for="password">Splash Tag(4-5 digits):</label>
+        <div>
+          <label>#</label>
+          <input name="password" id="password" type="text" required>
+        </div>
+      </div>
+      <div class="checkbox">
+        <input type="checkbox" name="noRobo" id="noRobo" required>
+        <label for="noRobo"><pre>I am a certified cephalopod.</pre></label>
+      </div>
+      <button id="button">Login</button>
+    </form>
+  </div>
 </body>
 </html>

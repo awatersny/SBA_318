@@ -5,9 +5,9 @@ router
   .route("/")
   .get((req, res) => {
     const options = {
-      title: "Welcome",
-      content:
-        "I'm just refreshing on ejs here.",
+      title: "Splatoon 3 Kit Organizer",
+      username: "Mobius",
+      splashTag: "2102"
     }
   
     res.render("index", options);
