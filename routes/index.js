@@ -1,4 +1,6 @@
 const express = require("express")
+const weaponKits = require("../data/weaponKits")
+const stages = require("../data/stages")
 const router = express.Router()
 
 router
@@ -6,8 +8,8 @@ router
   .get((req, res) => {
     const options = {
       title: "Splatoon 3 Kit Organizer",
-      username: "Mobius",
-      splashTag: "2102"
+      kits: weaponKits,
+      stages: stages
     }
   
     res.render("index", options);

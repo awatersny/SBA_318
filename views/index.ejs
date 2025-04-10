@@ -31,13 +31,17 @@
       <div class="field">
         <label for="favWeaponKit">Favorite Weapon Kit</label>
         <select name="favWeaponKit" id="favWeaponKit">
-          <option value="kit.name">kit.name</option>
+          <% kits.forEach(kit => { %>
+            <option value="<%= kit.kitName %>"><%= kit.kitName %></option>
+          <% }) %>
         </select>
       </div>
       <div class="field">
         <label for="favStage">Favorite Map</label>
         <select name="favStage" id="favStage">
-          <option value="stage.name">stage.name</option>
+          <% stages.forEach(stage => { %>
+          <option value="<%= stage.name %>"><%= stage.name %></option>
+          <% }) %>
         </select>
       </div>
       <div class="checkbox">
