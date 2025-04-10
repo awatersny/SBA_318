@@ -49,3 +49,11 @@ form {
   border-radius: 10px;
   border: 5px solid orangered;
 }
+
+button {
+  height: 30px;
+  width: 60px;
+  color: indigo;
+  background-color: yellow;
+  border-radius: 10px;
+}
