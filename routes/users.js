@@ -8,4 +8,10 @@ router
     res.json(users)
   })
 
+  router
+  .route("/api")
+  .get((req, res) => {
+    res.json(users)
+  })  
+
 module.exports = router
