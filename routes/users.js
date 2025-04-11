@@ -13,7 +13,16 @@ router
     res.render("users", options)
   })
   .post((req, res) => {
-    console.log(req.body)
+    const newUser = {
+      id: users.length,
+      splashTag: req.body.splashTag,
+      userName: req.body.userName,
+      species: req.body.species,
+      favWeaponKit: req.body.favWeaponKit,
+      favStage: req.body.favStage,
+      img: ""
+    }
+    users.push(newUser)
   })
 
   router
