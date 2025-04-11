@@ -7,12 +7,12 @@
   </head>
 
   <body>
-    <div id="main">
+    <h1 class="title"><%= title %></h1>
+    <div id="container">
       <div id="app">
-        <h1><%= title %></h1>
         <div id="users">
           <% users.forEach((user, idx) => { %>
-            <div class="user-info"
+            <div class="info-box"
               id="<%= idx+1 %>"
             >
               <h2>
