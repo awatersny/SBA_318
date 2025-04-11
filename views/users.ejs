@@ -9,28 +9,25 @@
   <body>
     <h1 class="title"><%= title %></h1>
     <div id="container">
-      <div id="app">
-        <div id="users">
-          <% users.forEach((user, idx) => { %>
-            <div class="info-box"
-              id="<%= idx+1 %>"
-            >
-              <h2>
-                <pre><%= user.userName %> #<%= user.splashTag %></pre>
-              </h2>
-              <h4>
-                Species: <%= user.species %>
-              </h4>
-              <h4>
-                Favorite Weapon Kit: <%= user.favWeaponKit %>
-              </h4>
-              <h4>
-                Favorite Map: <%= user.favStage %>
-              </h4>
-              <br>
-            </div>
-          <% }); %>
-        </div>
+      <div id="users">
+        <% users.forEach((user, idx) => { %>
+          <div class="info-box"
+            id="<%= idx+1 %>"
+          >
+            <h2>
+              <pre><%= user.userName %> #<%= user.splashTag %></pre>
+            </h2>
+            <h4>
+              Species: <%= user.species %>
+            </h4>
+            <h4>
+              Favorite Weapon Kit: <%= user.favWeaponKit %>
+            </h4>
+            <h4>
+              Favorite Map: <%= user.favStage %>
+            </h4>
+          </div>
+        <% }); %>
       </div>
     </div>
   </body>
