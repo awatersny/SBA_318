@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const users = require("../data/users")
+const weaponKits = require("../data/weaponKits")
 
 router
   .route("/")
@@ -9,7 +10,6 @@ router
       title: "Splatoon 3 Kit Organizer",
       users: users
     }
-
     res.render("users", options)
   })
   .post((req, res) => {
@@ -23,6 +23,7 @@ router
       img: ""
     }
     users.push(newUser)
+    res.redirect("/users")
   })
 
   router
