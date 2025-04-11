@@ -9,6 +9,19 @@ const port = 3000
 app.use(express.static("./styles"))
 app.use(express.static("./assets"))
 
+app.use((req, res, next) => {
+  const time = new Date();
+  console.log("-----")
+  console.log(`${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`)
+  if(req.body){
+    if (Object.keys(req.body).length > 0) {
+      console.log("Containing the data:")
+      console.log(`${JSON.stringify(req.body)}`)
+    }
+  }
+  next();
+});
+
 app.set("views", "./views")
 app.set("view engine", "ejs")
 
