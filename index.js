@@ -10,7 +10,7 @@ app.use(express.static("./styles"))
 app.use(express.static("./assets"))
 
 app.use((req, res, next) => {
-  const time = new Date();
+  const time = new Date()
   console.log("-----")
   console.log(`${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`)
   if(req.body){
@@ -20,6 +20,10 @@ app.use((req, res, next) => {
     }
   }
   next();
+});
+
+app.use((err, req, res, next) => {
+  res.status(400).send(err.message);
 });
 
 app.set("views", "./views")
