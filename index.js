@@ -36,12 +36,11 @@ app.use("/kits", kitRoutes)
 app.use("/stages", stageRoutes)
 
 app.use((req, res, next) => {
-  next(error(404, "Resource Not Found"));
+  next(error(404, "Oops!  There's nothing here."));
 });
 
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
-  console.log(err)
   res.json({ error: `${err.status} ${err.message}` });
 });
 
