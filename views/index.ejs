@@ -7,7 +7,12 @@
   <title><%= title %></title>
 </head>
 <body>
-  <h1 class="title"><%= title %></h1>
+  <nav>
+    <h1 class="title"><%= title %></h1>
+    <a href="/users">
+      <h4>Users</h4>
+    </a>
+  </nav>
   <div id="container">
     <form class="info-box" action="/users" method="post" style="box-shadow: 10px 10px 11px #000000;">
       <div class="field">
