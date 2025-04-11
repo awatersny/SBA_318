@@ -12,11 +12,14 @@ router
 
     res.render("users", options)
   })
+  .post((req, res) => {
+    console.log(req.body)
+  })
 
   router
   .route("/api")
   .get((req, res) => {
     res.json(users)
-  })  
+  })
 
 module.exports = router
