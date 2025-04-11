@@ -5,7 +5,12 @@ const users = require("../data/users")
 router
   .route("/")
   .get((req, res) => {
-    res.json(users)
+    const options = {
+      title: "Splatoon 3 Kit Organizer",
+      users: users
+    }
+
+    res.render("users", options)
   })
 
   router

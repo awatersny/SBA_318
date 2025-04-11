@@ -11,16 +11,21 @@
       <div id="app">
         <h1><%= title %></h1>
         <div id="users">
-          <% characters.forEach((character, idx) => { %>
+          <% users.forEach((user, idx) => { %>
             <div class="user-info"
               id="<%= idx+1 %>"
             >
               <h2>
-                <%= user.name %>
+                <pre><%= user.userName %> #<%= user.splashTag %></pre>
               </h2>
-              <br>
               <h4>
                 Species: <%= user.species %>
+              </h4>
+              <h4>
+                Favorite Weapon Kit: <%= user.favWeaponKit %>
+              </h4>
+              <h4>
+                Favorite Map: <%= user.favStage %>
               </h4>
               <br>
             </div>
