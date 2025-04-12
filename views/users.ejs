@@ -28,6 +28,11 @@
             <h4>
               Favorite Weapon Kit: <%= user.favWeaponKit %>
             </h4>
+            <% if(showKitDetails){ %>
+              <h5>Main: <%= kit.main %></h5>
+              <h5>Sub: <%= kit.sub %></h5>
+              <h5>Special: <%= kit.special %></h5>
+            <% } %>
             <h4>
               Favorite Map: <%= user.favStage %>
             </h4>

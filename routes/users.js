@@ -8,7 +8,8 @@ router
   .get((req, res) => {
     const options = {
       title: "Splatoon 3 Kit Organizer",
-      users: users
+      users: users,
+      showKitDetails: false
     }
     res.render("users", options)
   })
@@ -29,9 +30,12 @@ router
   router
   .route("/:id")
   .get((req, res) => {
+    const user = users[req.params.id - 1]
     const options = {
-      title: users[req.params.id].userName,
-      users: [users[req.params.id]]
+      title: user.userName,
+      users: [user],
+      kit: weaponKits.find((kit) => kit.kitName == user.favWeaponKit),
+      showKitDetails: true
     }
     res.render("users", options)
   })
