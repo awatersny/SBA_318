@@ -15,7 +15,7 @@ router
   })
   .post((req, res) => {
     const newUser = {
-      id: users.length,
+      id: users.length + 1,
       splashTag: req.body.splashTag,
       userName: req.body.userName,
       species: req.body.species,
