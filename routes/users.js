@@ -27,6 +27,20 @@ router
   })
 
   router
+  .route("/:id")
+  .get((req, res) => {
+    const options = {
+      title: users[req.params.id].userName,
+      users: [users[req.params.id]]
+    }
+    res.render("users", options)
+  })
+  .put((req, res) => {})
+  .delete((req, res) => {
+    console.log(1)
+  })
+
+  router
   .route("/api")
   .get((req, res) => {
     res.json(users)
