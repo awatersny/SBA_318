@@ -9,7 +9,7 @@
   <body>
     <nav>
       <h1 class="title"><%= title %></h1>
-      <a href="/">
+      <a href=<%= showKitDetails ? "/users" : "/" %>>
         <h4>Back</h4>
       </a>
     </nav>
@@ -36,6 +36,11 @@
             <h4>
               Favorite Map: <%= user.favStage %>
             </h4>
+            <% if(!showKitDetails){ %>
+              <a href="/users/<%= user.id %>">
+                <h4>Details</h4>
+              </a>
+            <% } %>
           </div>
         <% }); %>
       </div>
