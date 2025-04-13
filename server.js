@@ -1,6 +1,7 @@
 const express = require("express")
 const error = require("./utilities/error")
 const userRoutes = require("./routes/users")
+const userAPIRoutes = require("./routes/userAPI")
 const kitRoutes = require("./routes/weaponKits")
 const stageRoutes = require("./routes/stages")
 const indexRoute = require("./routes/index")
@@ -34,8 +35,9 @@ app.set("view engine", "ejs")
 
 app.use("/", indexRoute)
 app.use("/users", userRoutes)
-app.use("/kits", kitRoutes)
-app.use("/stages", stageRoutes)
+app.use("/api/users", userAPIRoutes)
+app.use("/api/kits", kitRoutes)
+app.use("/api/stages", stageRoutes)
 
 app.use((req, res, next) => {
   next(error(404, "Oops!  There's nothing here."));

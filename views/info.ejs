@@ -14,6 +14,7 @@
       </a>
     </nav>
     <div id="container">
+      <% if(type === "users") { %>
       <div id="users">
         <% users.forEach((user, idx) => { %>
           <div class="info-box"
@@ -44,6 +45,7 @@
           </div>
         <% }); %>
       </div>
+      <% } %>
     </div>
   </body>
 </html>

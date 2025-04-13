@@ -7,6 +7,7 @@ router
   .route("/")
   .get((req, res) => {
     const options = {
+      type: "users",
       title: "Player Info",
       users: users,
       showKitDetails: false
@@ -32,6 +33,7 @@ router
   .get((req, res) => {
     const user = users[req.params.id - 1]
     const options = {
+      type: "users",
       title: user.userName,
       users: [user],
       kit: weaponKits.find((kit) => kit.kitName == user.favWeaponKit),
