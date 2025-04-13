@@ -7,11 +7,11 @@ router
   .route("/")
   .get((req, res) => {
     const options = {
-      title: "Splatoon 3 Kit Organizer",
+      title: "Player Info",
       users: users,
       showKitDetails: false
     }
-    res.render("users", options)
+    res.render("info", options)
   })
   .post((req, res) => {
     const newUser = {
@@ -37,11 +37,11 @@ router
       kit: weaponKits.find((kit) => kit.kitName == user.favWeaponKit),
       showKitDetails: true
     }
-    res.render("users", options)
+    res.render("info", options)
   })
   .put((req, res) => {})
   .delete((req, res) => {
-    console.log(1)
+    console.log("delete")
   })
 
   router

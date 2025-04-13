@@ -12,7 +12,7 @@ router
       stages: stages
     }
   
-    res.render("index", options);
+    res.render("form", options);
   })
 
 module.exports = router
