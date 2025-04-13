@@ -48,7 +48,16 @@ app.use((err, req, res, next) => {
     console.log(`${err.status} Not found.`)
   }
   res.status(err.status || 500);
-  res.json({ error: `${err.status} ${err.message}` });
+  if(/\/api\/+/.test(req.url)) {
+    res.json({error: `${err.status} ${err.message}`})
+  } else {
+    const options = {
+      type: "error",
+      title: `${err.status} Error`,
+      content: err.message
+    }
+    res.render("info", options)
+  }
 });
 
 app.listen(port, () => {
