@@ -9,6 +9,7 @@ router
   .get((req, res, next) => {
     const kitId = req.query["kitId"]
     const options = {
+      content: "There are currently no players listed",
       type: "users",
       title: "Player Info",
       users: users,
@@ -63,6 +64,9 @@ router
   })
   .delete((req, res) => {
     users.splice(req.params.id - 1, 1)
+    users.forEach((user, idx) => {
+      user.id = idx + 1
+    })
     res.redirect("/users")
   })
 

@@ -9,9 +9,16 @@
   <body>
     <nav>
       <h1 class="title"><%= title %></h1>
+      <a href="/newUser">
+        <h4>Add</h4>
+      </a>
       <% if(type === "users") { %>
         <a href=<%= showKitDetails ? "/users" : "/" %>>
           <h4>Back</h4>
+        </a>
+      <% } else if(type === "home") { %>
+        <a href="/users">
+          <h4>Users</h4>
         </a>
       <% } else { %>
         <a href="/">
@@ -22,6 +29,11 @@
     <div id="container">
       <% if(type === "users") { %>
       <div id="users">
+        <% if(!users.length) { %>
+          <div class="info-box">
+            <%= content %>
+          </div>
+        <% } %>
         <% users.forEach((user, idx) => { %>
           <div class="info-box"
             id="<%= idx+1 %>"
@@ -54,7 +66,7 @@
               class="delete-button"
               method="POST"
             >
-              <button type="submit" >Delete User</button>
+              <button type="submit" >X</button>
             </form>
 
           </div>

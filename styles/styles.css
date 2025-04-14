@@ -37,6 +37,10 @@ h5 {
   margin: 0 0 10px 0;
 }
 
+button {
+  cursor: pointer;
+}
+
 a, a:visited{
   color: yellow;
 }
@@ -57,6 +61,11 @@ a:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.delete-button button{
+  color: white;
+  background-color: red;
 }
 
 #container {

@@ -25,6 +25,9 @@ router
   })
   .delete((req, res) => {
     users.splice(req.params.id - 1, 1)
+    users.forEach((user, idx) => {
+      user.id = idx + 1
+    })
     res.json(users)
   })
 

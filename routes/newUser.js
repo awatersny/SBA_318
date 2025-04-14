@@ -7,12 +7,12 @@ router
   .route("/")
   .get((req, res) => {
     const options = {
-      type: "home",
-      title: "Splatoon 3 User DB",
-      content: "Hello"
+      title: "Add User",
+      kits: weaponKits,
+      stages: stages
     }
   
-    res.render("info", options);
+    res.render("form", options);
   })
 
 module.exports = router
