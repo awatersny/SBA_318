@@ -20,27 +20,48 @@
     <form class="info-box" action="/users" method="post">
       <div class="field">
         <label class="text-label" for="userName">Username:</label>
-        <input name="userName" id="userName" type="text" required>
+        <input name="userName" id="userName" value="<%= userName %>" type="text" required>
       </div>
       <div class="field">
         <label class="text-label" for="splashTag">Splash Tag(4-5 digits):</label>
         <div>
           <label>#</label>
-          <input name="splashTag" id="splashTag" type="text" required>
+          <input name="splashTag" id="splashTag" value="<%= splashTag %>" type="text" required>
         </div>
       </div>
       <div class="field">
         <label for="species">Species</label>
         <select name="species" id="species">
-          <option value="Inkling">Inkling</option>
-          <option value="Octoling">Octoling</option>
+          <option 
+            value="Inkling"
+            <% if(species === "Inkling") {%>
+              selected
+            <% } %>
+          >
+            Inkling
+          </option>
+          <option
+            value="Octoling"
+            <% if(species === "Octoling") {%>
+              selected
+            <% } %>
+          >
+            Octoling
+          </option>
         </select>
       </div>
       <div class="field">
         <label for="favWeaponKit">Favorite Weapon Kit</label>
         <select name="favWeaponKit" id="favWeaponKit">
           <% kits.forEach(kit => { %>
-            <option value="<%= kit.kitName %>"><%= kit.kitName %></option>
+            <option
+              value="<%= kit.kitName %>"
+              <% if(favKit === kit.kitName) {%>
+                selected
+              <% } %>
+            >
+              <%= kit.kitName %>
+            </option>
           <% }) %>
         </select>
       </div>
@@ -48,7 +69,14 @@
         <label for="favStage">Favorite Map</label>
         <select name="favStage" id="favStage">
           <% stages.forEach(stage => { %>
-          <option value="<%= stage.name %>"><%= stage.name %></option>
+            <option
+              value="<%= stage.name %>"
+              <% if(favStage === stage.name) {%>
+                selected
+              <% } %>
+            >
+              <%= stage.name %>
+            </option>
           <% }) %>
         </select>
       </div>

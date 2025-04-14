@@ -8,6 +8,11 @@ router
   .get((req, res) => {
     const options = {
       title: "Add User",
+      userName: "",
+      splashTag: "",
+      species: "Inkling",
+      favKit: "Splattershot",
+      favStage: "Hagglefish Market",
       kits: weaponKits,
       stages: stages
     }
