@@ -28,7 +28,7 @@ router
     res.redirect("/users")
   })
 
-  router
+router
   .route("/:id")
   .get((req, res) => {
     const user = users[req.params.id - 1]
@@ -52,10 +52,11 @@ router
     res.redirect("/users")
   })
   .delete((req, res) => {
-    console.log("delete")
+    users = users.splice(req.params.id - 1, 1)
+    res.redirect("/users")
   })
 
-  router
+router
   .route("/api")
   .get((req, res) => {
     res.json(users)
