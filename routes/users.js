@@ -2,15 +2,25 @@ const express = require("express")
 const router = express.Router()
 const users = require("../data/users")
 const weaponKits = require("../data/weaponKits")
+const error = require("../utilities/error")
 
 router
   .route("/")
-  .get((req, res) => {
+  .get((req, res, next) => {
+    const kitId = req.query["kitId"]
     const options = {
       type: "users",
       title: "Player Info",
       users: users,
       showKitDetails: false
+    }
+    if(kitId) {
+      if(kitId < 1 || kitId > weaponKits.length){
+        next(error(404, "Oops!  There's nothing here."))
+      }
+      const favWeaponKit = weaponKits.find(kit => kit.id == kitId)
+      options.users = users
+      .filter(user => user.favWeaponKit == favWeaponKit.kitName)
     }
     res.render("info", options)
   })
