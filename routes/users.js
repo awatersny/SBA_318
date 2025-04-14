@@ -52,8 +52,9 @@ router
     res.redirect("/users")
   })
   .delete((req, res) => {
-    users = users.splice(req.params.id - 1, 1)
-    res.redirect("/users")
+    users.splice(req.params.id - 1, 1)
+    res.json(users)
+    // res.redirect("/users")
   })
 
 router
