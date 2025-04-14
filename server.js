@@ -1,5 +1,6 @@
 const express = require("express")
 const error = require("./utilities/error")
+const methodOverride = require('method-override')
 const userRoutes = require("./routes/users")
 const userAPIRoutes = require("./routes/userAPI")
 const kitRoutes = require("./routes/weaponKits")
@@ -14,6 +15,7 @@ app.use(bodyParser.json({ extended: true }));
 
 app.use(express.static("./styles"))
 app.use(express.static("./assets"))
+app.use(methodOverride("_method"))
 
 app.use((req, res, next) => {
   const time = new Date()

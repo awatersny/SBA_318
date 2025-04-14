@@ -48,6 +48,15 @@
                 <h4>Details</h4>
               </a>
             <% } %>
+            
+            <form 
+              action="/users/<%= user.id%>?_method=DELETE"
+              class="delete-form"
+              method="POST"
+            >
+              <button type="submit" >X</button>
+            </form>
+
           </div>
         <% }); %>
       </div>
