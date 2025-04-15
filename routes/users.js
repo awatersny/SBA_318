@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const users = require("../data/users")
 const weaponKits = require("../data/weaponKits")
+const stages = require("../data/stages")
 const error = require("../utilities/error")
 
 router
@@ -41,7 +42,12 @@ router
 
 router
   .route("/:id")
-  .get((req, res) => {
+  .get((req, res, next) => {
+    const userId = parseInt(req.params.id)
+    if(userId < 1 || userId > users.length || Number.isNaN(userId)) {
+      next(error(404, "Oops!  There's nothing here."))
+    }
+    console.log(userId)
     const user = users[req.params.id - 1]
     const options = {
       type: "users",
@@ -68,6 +74,24 @@ router
       user.id = idx + 1
     })
     res.redirect("/users")
+  })
+
+router
+  .route("/:id/edit")
+  .get((req, res) => {
+    const user = users[req.params.id - 1]
+    const options = {
+      title: `Edit ${user.userName}`,
+      userName: user.userName,
+      splashTag: user.splashTag,
+      species: user.species,
+      favKit: user.favWeaponKit,
+      favStage: user.favStage,
+      kits: weaponKits,
+      stages: stages
+    }
+  
+    res.render("form", options);
   })
 
 router

@@ -44,6 +44,7 @@ app.use("/api/kits", kitRoutes)
 app.use("/api/stages", stageRoutes)
 
 app.use((req, res, next) => {
+  next(error(404, "Oops!, There's nothing here."))
 });
 
 app.use((err, req, res, next) => {
