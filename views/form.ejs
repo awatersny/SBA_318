@@ -36,7 +36,7 @@
       method="post"
     >
       <% if(!isValid) { %>
-        <h5 class="err-msg">Invalid</h5>
+        <h5 class="err-msg"><%= errMsg %></h5>
       <% } %>
       <div class="field">
         <label class="text-label" for="userName">Username (Max 10 Characters):</label>

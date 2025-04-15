@@ -28,6 +28,19 @@ router
     res.render("info", options)
   })
   .post((req, res) => {
+    const options = {
+      title: "Invalid",
+      userName: "",
+      splashTag: "",
+      species: "Inkling",
+      favKit: "Splattershot",
+      favStage: "Hagglefish Market",
+      buttonText: "Create",
+      kits: weaponKits,
+      stages: stages,
+      isValid: false,
+      errMsg: "Invalid Format"
+    }
     if(/^[0-9]{4,5}$/.test(req.body.splashTag) && req.body.userName.length < 11){
       const newUser = {
         id: users.length + 1,
@@ -41,18 +54,6 @@ router
       users.push(newUser)
       res.redirect("/users")
     } else {
-      const options = {
-        title: "Invalid",
-        userName: "",
-        splashTag: "",
-        species: "Inkling",
-        favKit: "Splattershot",
-        favStage: "Hagglefish Market",
-        buttonText: "Create",
-        kits: weaponKits,
-        stages: stages,
-        isValid: false
-      }
       res.render("form", options);
     }
   })
@@ -96,7 +97,8 @@ router
         buttonText: "Update",
         kits: weaponKits,
         stages: stages,
-        isValid: false
+        isValid: false,
+        errMsg: "Invalid Format"
       }
       res.render("form", options);
     }
