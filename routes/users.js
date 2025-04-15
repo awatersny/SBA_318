@@ -27,7 +27,7 @@ router
     }
     res.render("info", options)
   })
-  .post((req, res) => {
+  .post((req, res, next) => {
     const options = {
       title: "Invalid",
       userName: "",
@@ -51,8 +51,13 @@ router
         favStage: req.body.favStage,
         img: ""
       }
-      users.push(newUser)
-      res.redirect("/users")
+      if(typeof users.find(user => user.splashTag == req.body.splashTag ) !== "object") {
+        users.push(newUser)
+        res.redirect("/users")
+      } else {
+        options.errMsg = "User with this splashtag already exists."
+        res.render("form", options);
+      }
     } else {
       res.render("form", options);
     }
@@ -77,29 +82,34 @@ router
   })
   .put((req, res) => {
     const user = users[req.params.id - 1]
+    const options = {
+      userId: req.params.id,
+      title: `Edit ${user.userName}`,
+      userName: user.userName,
+      splashTag: user.splashTag,
+      species: user.species,
+      favKit: user.favWeaponKit,
+      favStage: user.favStage,
+      buttonText: "Update",
+      kits: weaponKits,
+      stages: stages,
+      isValid: false,
+      errMsg: "Invalid Format"
+    }
     if(/^[0-9]{4,5}$/.test(req.body.splashTag) && req.body.userName.length < 11){
-      user.userName = req.body.userName
-      user.splashTag = req.body.splashTag
-      user.species = req.body.species
-      user.favWeaponKit = req.body.favWeaponKit
-      user.favStage = req.body.favStage
-      users[req.params.id - 1] = user
-      res.redirect(`/users/${req.params.id}`)
-    } else {
-      const options = {
-        userId: req.params.id,
-        title: `Edit ${user.userName}`,
-        userName: user.userName,
-        splashTag: user.splashTag,
-        species: user.species,
-        favKit: user.favWeaponKit,
-        favStage: user.favStage,
-        buttonText: "Update",
-        kits: weaponKits,
-        stages: stages,
-        isValid: false,
-        errMsg: "Invalid Format"
+      if(typeof users.find(usr => (usr.splashTag == req.body.splashTag) && (usr.id != req.params.id) ) !== "object") {
+        user.userName = req.body.userName
+        user.splashTag = req.body.splashTag
+        user.species = req.body.species
+        user.favWeaponKit = req.body.favWeaponKit
+        user.favStage = req.body.favStage
+        users[req.params.id - 1] = user
+        res.redirect(`/users/${req.params.id}`)
+      } else {
+        options.errMsg = "User with this splashtag already exists."
+        res.render("form", options);
       }
+    } else {
       res.render("form", options);
     }
   })
