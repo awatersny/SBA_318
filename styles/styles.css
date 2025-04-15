@@ -44,6 +44,7 @@ button {
 a, a:visited{
   color: yellow;
   text-decoration: none;
+  text-shadow: 10px 10px 11px black;
 }
 
 a:hover {
@@ -79,7 +80,8 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 300px;
+  width: 400px;
+  margin-top: 50px;
 }
 
 .info-box {
