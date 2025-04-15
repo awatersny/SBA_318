@@ -13,6 +13,7 @@ router
       species: "Inkling",
       favKit: "Splattershot",
       favStage: "Hagglefish Market",
+      buttonText: "Create",
       kits: weaponKits,
       stages: stages
     }

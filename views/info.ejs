@@ -55,20 +55,24 @@
             <h4>
               Favorite Map: <%= user.favStage %>
             </h4>
-            <% if(!showKitDetails){ %>
-              <a href="/users/<%= user.id %>">
-                <h4>Details</h4>
-              </a>
-            <% } %>
-            
-            <form 
-              action="/users/<%= user.id%>?_method=DELETE"
-              class="delete-button"
-              method="POST"
-            >
-              <button type="submit" >X</button>
-            </form>
-
+            <div id="info-buttons">
+              <% if(!showKitDetails){ %>
+                <a href="/users/<%= user.id %>">
+                  <h4>Details</h4>
+                </a>
+              <% } else {%>
+                <a href="/users/<%= user.id %>/edit">
+                  <h4>Edit</h4>
+                </a>
+              <% }%>
+              <form 
+                action="/users/<%= user.id%>?_method=DELETE"
+                class="delete-button"
+                method="POST"
+              >
+                <button type="submit" >X</button>
+              </form>
+            </div>
           </div>
         <% }); %>
       </div>

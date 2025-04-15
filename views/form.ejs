@@ -17,7 +17,14 @@
     </a>
   </nav>
   <div id="container">
-    <form class="info-box" action="/users" method="post">
+    <form
+      class="info-box"
+      <% if(buttonText === "Update") { %>
+        action="/users/<%= userId%>?_method=PUT"
+      <% } else { %>
+        action="/users"
+      <% } %>
+      method="post">
       <div class="field">
         <label class="text-label" for="userName">Username:</label>
         <input name="userName" id="userName" value="<%= userName %>" type="text" required>
@@ -84,7 +91,7 @@
         <input type="checkbox" name="noRobo" id="noRobo" required>
         <label for="noRobo"><pre>I am a certified cephalopod.</pre></label>
       </div>
-      <button id="button">Create</button>
+      <button id="button"><%= buttonText %></button>
     </form>
   </div>
 </body>

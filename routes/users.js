@@ -66,7 +66,7 @@ router
     user.favWeaponKit = req.body.favWeaponKit
     user.favStage = req.body.favStage
     users[req.params.id - 1] = user
-    res.redirect("/users")
+    res.redirect(`/users/${req.params.id}`)
   })
   .delete((req, res) => {
     users.splice(req.params.id - 1, 1)
@@ -81,12 +81,14 @@ router
   .get((req, res) => {
     const user = users[req.params.id - 1]
     const options = {
+      userId: req.params.id,
       title: `Edit ${user.userName}`,
       userName: user.userName,
       splashTag: user.splashTag,
       species: user.species,
       favKit: user.favWeaponKit,
       favStage: user.favStage,
+      buttonText: "Update",
       kits: weaponKits,
       stages: stages
     }

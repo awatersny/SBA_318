@@ -74,6 +74,13 @@ a:hover {
   justify-content: center;
 }
 
+#info-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+}
+
 .info-box {
   padding: 50px;
   margin-bottom: 50px;
