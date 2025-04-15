@@ -8,4 +8,10 @@ router
     res.json(weaponKits)
   })
 
+router
+  .route("/:id")
+  .get((req, res) => {
+    res.json(weaponKits[req.params.id - 1])
+    })
+
 module.exports = router

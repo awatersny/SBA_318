@@ -8,4 +8,10 @@ router
     res.json(stages)
   })
 
+router
+  .route("/:id")
+  .get((req, res) => {
+    res.json(stages[req.params.id - 1])
+  })
+
 module.exports = router
