@@ -28,17 +28,32 @@ router
     res.render("info", options)
   })
   .post((req, res) => {
-    const newUser = {
-      id: users.length + 1,
-      splashTag: req.body.splashTag,
-      userName: req.body.userName,
-      species: req.body.species,
-      favWeaponKit: req.body.favWeaponKit,
-      favStage: req.body.favStage,
-      img: ""
+    if(/^[0-9]{4,5}$/.test(req.body.splashTag) && req.body.userName.length < 11){
+      const newUser = {
+        id: users.length + 1,
+        splashTag: req.body.splashTag,
+        userName: req.body.userName,
+        species: req.body.species,
+        favWeaponKit: req.body.favWeaponKit,
+        favStage: req.body.favStage,
+        img: ""
+      }
+      users.push(newUser)
+      res.redirect("/users")
+    } else {
+      const options = {
+        title: "Invalid",
+        userName: "",
+        splashTag: "",
+        species: "Inkling",
+        favKit: "Splattershot",
+        favStage: "Hagglefish Market",
+        buttonText: "Create",
+        kits: weaponKits,
+        stages: stages
+      }
+      res.render("form", options);
     }
-    users.push(newUser)
-    res.redirect("/users")
   })
 
 router
