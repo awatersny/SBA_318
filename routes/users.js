@@ -21,6 +21,7 @@ router
         next(error(404, "Oops!  There's nothing here."))
       }
       const favWeaponKit = weaponKits.find(kit => kit.id == kitId)
+      options.content = `There are no players with ${favWeaponKit.kitName} as their favorite weapon kit.`
       options.users = users
       .filter(user => user.favWeaponKit == favWeaponKit.kitName)
     }
@@ -47,7 +48,6 @@ router
     if(userId < 1 || userId > users.length || Number.isNaN(userId)) {
       next(error(404, "Oops!  There's nothing here."))
     }
-    console.log(userId)
     const user = users[req.params.id - 1]
     const options = {
       type: "users",

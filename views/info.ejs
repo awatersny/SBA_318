@@ -51,6 +51,9 @@
               <h5>Main: <%= kit.main %></h5>
               <h5>Sub: <%= kit.sub %></h5>
               <h5>Special: <%= kit.special %></h5>
+              <a class="info-link" href="/users?kitId=<%= kit.id %>">
+                <h5>Players who favorited this kit</h5>
+              </a>
             <% } %>
             <h4>
               Favorite Map: <%= user.favStage %>
