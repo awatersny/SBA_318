@@ -43,6 +43,7 @@ button {
 
 a, a:visited{
   color: yellow;
+  text-decoration: none;
 }
 
 a:hover {
