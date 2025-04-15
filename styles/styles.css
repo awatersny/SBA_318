@@ -59,6 +59,10 @@ a:hover {
   margin-bottom: 30px;
 }
 
+.err-msg {
+  color: orangered;
+}
+
 .checkbox {
   display: flex;
   justify-content: space-around;

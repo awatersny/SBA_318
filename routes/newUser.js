@@ -15,7 +15,8 @@ router
       favStage: "Hagglefish Market",
       buttonText: "Create",
       kits: weaponKits,
-      stages: stages
+      stages: stages,
+      isValid: true
     }
   
     res.render("form", options);

@@ -33,7 +33,11 @@
       <% } else { %>
         action="/users"
       <% } %>
-      method="post">
+      method="post"
+    >
+      <% if(!isValid) { %>
+        <h5 class="err-msg">Invalid</h5>
+      <% } %>
       <div class="field">
         <label class="text-label" for="userName">Username (Max 10 Characters):</label>
         <input name="userName" id="userName" value="<%= userName %>" type="text" required>

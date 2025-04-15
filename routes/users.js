@@ -50,7 +50,8 @@ router
         favStage: "Hagglefish Market",
         buttonText: "Create",
         kits: weaponKits,
-        stages: stages
+        stages: stages,
+        isValid: false
       }
       res.render("form", options);
     }
@@ -75,13 +76,30 @@ router
   })
   .put((req, res) => {
     const user = users[req.params.id - 1]
-    user.userName = req.body.userName
-    user.splashTag = req.body.splashTag
-    user.species = req.body.species
-    user.favWeaponKit = req.body.favWeaponKit
-    user.favStage = req.body.favStage
-    users[req.params.id - 1] = user
-    res.redirect(`/users/${req.params.id}`)
+    if(/^[0-9]{4,5}$/.test(req.body.splashTag) && req.body.userName.length < 11){
+      user.userName = req.body.userName
+      user.splashTag = req.body.splashTag
+      user.species = req.body.species
+      user.favWeaponKit = req.body.favWeaponKit
+      user.favStage = req.body.favStage
+      users[req.params.id - 1] = user
+      res.redirect(`/users/${req.params.id}`)
+    } else {
+      const options = {
+        userId: req.params.id,
+        title: `Edit ${user.userName}`,
+        userName: user.userName,
+        splashTag: user.splashTag,
+        species: user.species,
+        favKit: user.favWeaponKit,
+        favStage: user.favStage,
+        buttonText: "Update",
+        kits: weaponKits,
+        stages: stages,
+        isValid: false
+      }
+      res.render("form", options);
+    }
   })
   .delete((req, res) => {
     users.splice(req.params.id - 1, 1)
@@ -105,9 +123,9 @@ router
       favStage: user.favStage,
       buttonText: "Update",
       kits: weaponKits,
-      stages: stages
+      stages: stages,
+      isValid: true
     }
-  
     res.render("form", options);
   })
 
