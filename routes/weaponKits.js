@@ -3,13 +3,13 @@ const router = express.Router()
 const weaponKits = require("../data/weaponKits")
 
 router
-  .route("/")
+  .route("/kits")
   .get((req, res) => {
     res.json(weaponKits)
   })
 
 router
-  .route("/:id")
+  .route("/kits/:id")
   .get((req, res) => {
     res.json(weaponKits[req.params.id - 1])
     })

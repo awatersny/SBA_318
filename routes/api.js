@@ -1,6 +1,8 @@
 const express = require("express")
 const router = express.Router()
 const users = require("../data/users")
+const weaponKits = require("../data/weaponKits")
+const stages = require("../data/stages")
 
 router
   .route("/users")
@@ -30,5 +32,29 @@ router
     })
     res.json(users)
   })
+
+router
+  .route("/stages")
+  .get((req, res) => {
+    res.json(stages)
+  })
+
+router
+  .route("/stages/:id")
+  .get((req, res) => {
+    res.json(stages[req.params.id - 1])
+  })
+
+router
+  .route("/kits")
+  .get((req, res) => {
+    res.json(weaponKits)
+  })
+
+router
+  .route("/kits/:id")
+  .get((req, res) => {
+    res.json(weaponKits[req.params.id - 1])
+    })
 
 module.exports = router
