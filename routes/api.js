@@ -21,7 +21,7 @@ router
         },
         {
           href: "/kits",
-          rel: "kits",
+          rel: "weaponKits",
           type: "GET"
         },
         {
