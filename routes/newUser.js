@@ -7,7 +7,7 @@ router
   .route("/")
   .get((req, res) => {
     const options = {
-      title: "Add User",
+      title: "Add Player",
       userName: "",
       splashTag: "",
       species: "Inkling",
