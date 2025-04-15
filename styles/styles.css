@@ -65,9 +65,13 @@ a:hover {
   align-items: center;
 }
 
-.delete-button button{
+.delete-button button {
   color: white;
   background-color: red;
+}
+
+.info-link {
+  text-decoration: underline;
 }
 
 #container {
@@ -85,6 +89,7 @@ a:hover {
 }
 
 .info-box {
+  text-align: center;
   padding: 50px;
   margin-bottom: 50px;
   display: flex;
