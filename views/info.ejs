@@ -10,15 +10,15 @@
     <nav>
       <h1 class="title"><%= title %></h1>
       <a href="/newUser">
-        <h4>Add</h4>
+        <h4>Add Player</h4>
       </a>
       <% if(type === "users") { %>
         <a href=<%= showKitDetails ? "/users" : "/" %>>
-          <h4>Back</h4>
+          <h4><%= showKitDetails ? "Back" : "Home" %></h4>
         </a>
       <% } else if(type === "home") { %>
         <a href="/users">
-          <h4>Users</h4>
+          <h4>All Players</h4>
         </a>
       <% } else { %>
         <a href="/">
@@ -58,7 +58,7 @@
             <div id="info-buttons">
               <% if(!showKitDetails){ %>
                 <a href="/users/<%= user.id %>">
-                  <h4>Details</h4>
+                  <h4>Player Details</h4>
                 </a>
               <% } else {%>
                 <a href="/users/<%= user.id %>/edit">

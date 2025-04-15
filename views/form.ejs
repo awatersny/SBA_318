@@ -9,12 +9,21 @@
 <body>
   <nav>
     <h1 class="title"><%= title %></h1>
-    <a href="/">
-      <h4>Home</h4>
+    <a href="/newUser">
+      <h4>Add Player</h4>
     </a>
     <a href="/users">
-      <h4>Users</h4>
+      <h4>All Players</h4>
     </a>
+    <% if(buttonText === "Update") { %>
+      <a href="/users/<%= userId%>">
+        <h4>Back</h4>
+      </a>
+    <% } else { %>
+      <a href="/">
+        <h4>Home</h4>
+      </a>
+    <% } %>
   </nav>
   <div id="container">
     <form
